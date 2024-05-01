@@ -1,0 +1,29 @@
+  // Set document information
+        $pdf->SetCreator('LibraryManager.com');
+        $pdf->SetAuthor('LibraryManager.com');
+        $pdf->SetTitle($username);
+        $pdf->SetSubject($id);
+        $pdf->SetKeywords('TCPDF, PDF, user, data');
+
+        // Remove default header/footer
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+
+        // Add a page
+        $pdf->AddPage();
+
+        // Set font for the PDF document
+        $pdf->SetFont('times', '', 12);
+
+        // Add HTML content to PDF
+        $html = '<br><br>
+            <center><h1>Signup Data</h1></center><br><br>
+            <center><h2>Your credentials</h2></center><br><br>
+            <center><p>Your data for the LibraryManager.com domain, store it for future use.</p></center>
+            <p>Date of Generation: ' . date('d-m-Y H:i:s', time() + 5.5 * 3600) . '</p><br><br>
+            <p>ID: ' . $id . '</p>
+            <p>Username: ' . $username . '</p>
+            <p>Email: ' . $email . '</p>
+            <p>Mobile Number: ' . $mobile_number . '</p>
+            <p>PIN: ' . $pin . '</p>
+        ';
